@@ -1,6 +1,6 @@
 import React from "react";
 import { FaUserCircle } from "react-icons/fa";
-import myPhoto from "../assets/myPhoto.png";
+import myPhoto from '/src/assets/myPhoto.png';
 
 const About = () => {
   return (
