@@ -34,10 +34,10 @@ import {
 // Skills data
 const skills = [
   // Languages
-  { name: "Java", level: "90%", icon: <FaJava className="text-orange-500" /> },
+  { name: "Java", level: "95%", icon: <FaJava className="text-orange-500" /> },
   {
     name: "JavaScript",
-    level: "85%",
+    level: "90%",
     icon: <SiJavascript className="text-yellow-400" />,
   },
   { name: "MySQL", level: "80%", icon: <SiMysql className="text-blue-700" /> },
@@ -45,10 +45,10 @@ const skills = [
   // Frontend
   {
     name: "HTML5",
-    level: "90%",
+    level: "98%",
     icon: <FaHtml5 className="text-orange-500" />,
   },
-  { name: "CSS3", level: "85%", icon: <FaCss3Alt className="text-blue-500" /> },
+  { name: "CSS3", level: "98%", icon: <FaCss3Alt className="text-blue-500" /> },
   {
     name: "React.js",
     level: "85%",
@@ -68,19 +68,19 @@ const skills = [
   // Backend
   {
     name: "Spring Boot",
-    level: "80%",
+    level: "60%",
     icon: <SiSpringboot className="text-green-500" />,
   },
   {
     name: "REST APIs",
-    level: "90%",
+    level: "95%",
     icon: <FaServer className="text-teal-500" />,
   },
 
   // Auth / State
   {
     name: "Firebase",
-    level: "70%",
+    level: "30%",
     icon: <SiFirebase className="text-yellow-500" />,
   },
   {
@@ -90,10 +90,10 @@ const skills = [
   },
 
   // Tools
-  { name: "Git", level: "85%", icon: <FaGitAlt className="text-red-500" /> },
+  { name: "Git", level: "95%", icon: <FaGitAlt className="text-red-500" /> },
   {
     name: "Postman",
-    level: "85%",
+    level: "95%",
     icon: <SiPostman className="text-orange-400" />,
   },
   {
@@ -113,15 +113,15 @@ const skills = [
     level: "85%",
     icon: <FaProjectDiagram className="text-pink-500" />,
   },
-  { name: "OOPs", level: "80%", icon: <FaCode className="text-green-400" /> },
+  { name: "OOPs", level: "95%", icon: <FaCode className="text-green-400" /> },
   {
     name: "DBMS",
-    level: "60%",
+    level: "80%",
     icon: <FaDatabase className="text-gray-500" />,
   },
   {
     name: "Computer Networks",
-    level: "60%",
+    level: "80%",
     icon: <FaServer className="text-gray-400" />,
   },
 ];
@@ -135,7 +135,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="px-4 py-10 bg-white text-center scroll-mt-20"
+      className="px-4 py-10 bg-white text-center "
       ref={ref}
     >
       <h2 className="text-3xl sm:text-4xl font-bold text-pink-600 mb-4">
@@ -157,7 +157,7 @@ const Skills = () => {
             className="bg-gray-100 p-5 rounded-lg shadow hover:shadow-md transition"
           >
             <div className="flex items-center gap-4 mb-2">
-              <div className="text-2xl">{skill.icon}</div>
+              <div className="text-4xl">{skill.icon}</div>
               <h3 className="text-lg font-semibold text-gray-800">
                 {skill.name}
               </h3>

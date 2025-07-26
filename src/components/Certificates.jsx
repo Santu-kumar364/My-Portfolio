@@ -3,6 +3,12 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 
 const certificates = [
   {
+    title: "Frontend Developer",
+    issuer: "Hackerrank",
+    date: "2025",
+    link: "https://www.hackerrank.com/certificates/da3760ad50de",
+  },
+  {
     title: "Software Engineer",
     issuer: "Hackerrank",
     date: "2025",
@@ -78,35 +84,38 @@ const certificates = [
 
 const Certificates = () => {
   return (
-    <section id="certificates" className="py-16 px-6 bg-gray-50 scroll-mt-20">
+    <section id="certificates" className="py-16 px-6 bg-gray-50 ">
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-3xl sm:text-4xl font-bold text-pink-600 mb-4">
           Certifications
         </h2>
         <p className="text-gray-700 mb-10 text-lg">
-          Recognitions and certifications that validate my skills and learning journey.
+          Recognitions and certifications that validate my skills and learning
+          journey.
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-2  lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {certificates.map((cert, index) => (
             <div
               key={index}
               className="bg-white p-5 rounded-lg shadow hover:shadow-md transition"
             >
-              <h3 className="text-lg font-semibold text-gray-800">{cert.title}</h3>
-              <p className="text-sm text-gray-600">
+              <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-gray-800">
+                {cert.title}
+              </h3>
+              <p className="text-xs sm:text-sm lg:text-base text-gray-600">
                 {cert.issuer} • {cert.date}
               </p>
-              {cert.link && (
-                <a
-                  href={cert.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-pink-600 font-medium inline-flex items-center mt-2 hover:underline"
-                >
-                  View Certificate <FaExternalLinkAlt className="ml-1" />
-                </a>
-              )}
+              <a
+                href={cert.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs sm:text-sm lg:text-base text-pink-600 font-medium inline-flex items-center mt-2 hover:underline"
+              >
+                View Certificate{" "}
+                <FaExternalLinkAlt className="ml-1 text-xs sm:text-sm" />
+              </a>
+              
             </div>
           ))}
         </div>

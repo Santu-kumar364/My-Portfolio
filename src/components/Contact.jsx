@@ -4,8 +4,8 @@ const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <section id="contact" className="bg-white px-4 scroll-mt-20 pb-12">
-      <div className="max-w-3xl mx-auto text-center">
+    <section id="contact" className="bg-white px-4 lg:pb-16 py-16">
+      <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl sm:text-4xl font-bold text-pink-600 mb-4">
           Let's Connect
         </h2>

@@ -1,5 +1,8 @@
 {
   "name": "my_portfolio",
+  "homepage": "https://Santu-kumar364.github.io/My-Portfolio",
+  "description": "My personal portfolio website showcasing my skills, projects, and experience.",
+  "author": "Santu Kumar",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,7 +10,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
