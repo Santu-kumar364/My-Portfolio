@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import bgImg from "../assets/bgImg.jpg";
 import innerLogo from "../assets/innerLogo.png";
 
-
-
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [displayText, setDisplayText] = useState("");
@@ -50,14 +48,9 @@ const Navbar = () => {
     >
       {/* Navbar */}
       <nav className="max-w-7xl mx-auto py-4 flex justify-between items-center relative z-10">
-        <a href="#home" >
-          <img
-            src={innerLogo}  
-            alt="Portfolio"
-            className=" sm:h-30 lg:h-40"
-          />
+        <a href="#home">
+          <img src={innerLogo} alt="Portfolio" className=" sm:h-30 lg:h-40" />
         </a>
-        
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center gap-6 lg:gap-10 text-lg">
@@ -170,8 +163,11 @@ const Navbar = () => {
 
       {/* Hero Section */}
       <section className="text-center px-6 py-2 max-w-4xl mx-auto pt-32">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white">
-          I am Santu Kumar
+        <h1
+          className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white"
+          style={{ fontFamily: "'Roboto', sans-serif" }}
+        >
+          Santu Kumar
         </h1>
         <p className="mt-4 text-2xl sm:text-3xl text-white font-medium">
           {displayText}
