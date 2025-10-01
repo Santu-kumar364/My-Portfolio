@@ -59,11 +59,7 @@ const skills = [
     level: "75%",
     icon: <SiTailwindcss className="text-sky-400" />,
   },
-  {
-    name: "TypeScript",
-    level: "40%",
-    icon: <SiTypescript className="text-blue-500" />,
-  },
+   
 
   // Backend
   {
@@ -77,12 +73,7 @@ const skills = [
     icon: <FaServer className="text-teal-500" />,
   },
 
-  // Auth / State
-  {
-    name: "Firebase",
-    level: "30%",
-    icon: <SiFirebase className="text-yellow-500" />,
-  },
+   
   {
     name: "Cloudinary",
     level: "65%",

@@ -1,27 +1,32 @@
 import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import bgImg from "../assets/bgImg.jpg";
 import innerLogo from "../assets/innerLogo.png";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [displayText, setDisplayText] = useState("");
   const [roleIndex, setRoleIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
 
   const roles = [
     "Java Developer",
-    "Frontend Developer",
-    "Backend Developer",
-    "Web Developer",
+    "Full Stack Developer",
     "Software Engineer",
-    "Competitive Programmer",
-    "Student",
+    "Web Developer",
   ];
 
-  const resumeLink =
-    "https://drive.google.com/uc?export=download&id=1BcWLhLWIZ-eT6hMf1nn912OFXM4jS6XS";
+  const resumeLink = "https://drive.google.com/uc?export=download&id=1iSMyZQ1n0wbY2MMhz-qxAiYwD3UK1QwA";
 
-  // Typewriter effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       setDisplayText(roles[roleIndex].slice(0, charIndex + 1));
@@ -29,184 +34,250 @@ const Navbar = () => {
         setTimeout(() => {
           setCharIndex(0);
           setRoleIndex((roleIndex + 1) % roles.length);
-        }, 2000); // Wait before switching role
+        }, 2000);
       } else {
         setCharIndex((prev) => prev + 1);
       }
     }, 100);
-
     return () => clearTimeout(timeout);
   }, [charIndex, roleIndex]);
+
+  const navVariants = {
+    hidden: { y: -100, opacity: 0 },
+    visible: { 
+      y: 0, 
+      opacity: 1,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const textVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    })
+  };
 
   return (
     <header
       id="home"
-      className="relative h-screen bg-cover bg-center bg-no-repeat text-white "
-      style={{
-        backgroundImage: `url(${bgImg})`,
-      }}
+      className="relative h-screen bg-cover bg-center bg-no-repeat text-white overflow-hidden"
+      style={{ backgroundImage: `url(${bgImg})` }}
     >
-      {/* Navbar */}
-      <nav className="max-w-7xl mx-auto py-4 flex justify-between items-center relative z-10">
-        <a href="#home">
-          <img src={innerLogo} alt="Portfolio" className=" sm:h-30 lg:h-40" />
-        </a>
+      {/* Animated Background Overlay */}
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]"></div>
+      
+      {/* Floating Particles */}
+      <div className="absolute inset-0">
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-white/30 rounded-full"
+            animate={{
+              y: [0, -100, 0],
+              x: [0, Math.random() * 100 - 50, 0],
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+          />
+        ))}
+      </div>
 
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex items-center gap-6 lg:gap-10 text-lg">
-          <li>
-            <a href="#home" className="hover:text-gray-300 transition">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#skills" className="hover:text-gray-300 transition">
-              Skills
-            </a>
-          </li>
-          <li>
-            <a href="#experience" className="hover:text-gray-300 transition">
-              Experience
-            </a>
-          </li>
-          <li>
-            <a href="#projects" className="hover:text-gray-300 transition">
-              Projects
-            </a>
-          </li>
-          <li>
-            <a href="#contact" className="hover:text-gray-300 transition">
-              Contact
-            </a>
-          </li>
-        </ul>
-
-        <a
-          href={resumeLink}
-          download
-          className="hidden md:inline-block rounded-full bg-white px-4 py-2 text-sm font-semibold text-pink-500 shadow-md hover:scale-105 hover:shadow-pink-800 transition duration-300"
-        >
-          Download Resume
-        </a>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden ml-4 hover:scale-125 transition-all"
-          title="Menu"
-        >
-          <svg
-            className="h-6 w-6 text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+      <motion.nav
+        variants={navVariants}
+        initial="hidden"
+        animate="visible"
+        className={`fixed w-full py-4 transition-all duration-300 z-50 ${
+          scrolled ? "bg-white/90 backdrop-blur-md shadow-lg" : "bg-transparent"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
+          <motion.a 
+            href="#home"
+            whileHover={{ scale: 1.05 }}
+            className="flex items-center"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            />
-          </svg>
-        </button>
-      </nav>
+            <img src={innerLogo} alt="Portfolio" className="h-12 lg:h-16" />
+          </motion.a>
 
-      {/* Mobile Dropdown */}
-      {menuOpen && (
-        <div className="md:hidden -mt-15">
-          <ul className=" rounded-xl mx-6 p-4 space-y-3 text-left  backdrop-blur">
-            <li>
-              <a
-                href="#skills"
-                className="block hover:text-gray-300 transition"
-              >
-                Skills
-              </a>
-            </li>
-            <li>
-              <a
-                href="#experience"
-                className="block hover:text-gray-300 transition"
-              >
-                Experience
-              </a>
-            </li>
-            <li>
-              <a
-                href="#projects"
-                className="block hover:text-gray-300 transition"
-              >
-                Projects
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className="block hover:text-gray-300 transition"
-              >
-                Contact
-              </a>
-            </li>
-            <li>
-              <a
+          {/* Desktop Menu */}
+          <ul className="hidden md:flex items-center gap-8 text-lg">
+            {["Home", "Skills", "Experience", "Projects", "Certificates", "Contact"].map((item, index) => (
+              <motion.li key={item} custom={index} variants={textVariants}>
+                <a
+                  href={`#${item.toLowerCase()}`}
+                  className={`font-medium transition-colors hover:text-pink-400 ${
+                    scrolled ? "text-gray-800" : "text-white"
+                  }`}
+                >
+                  {item}
+                </a>
+              </motion.li>
+            ))}
+          </ul>
+
+          <motion.a
+            href={resumeLink}
+            download
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className={`hidden md:inline-block px-6 py-2 rounded-full font-semibold shadow-lg transition-all duration-300 ${
+              scrolled 
+                ? "bg-gradient-to-r from-pink-500 to-purple-600 text-white" 
+                : "bg-white text-pink-600"
+            }`}
+          >
+            Download CV
+          </motion.a>
+
+          {/* Mobile Menu Button */}
+          <motion.button
+            onClick={() => setMenuOpen(!menuOpen)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className={`md:hidden p-2 rounded-lg ${
+              scrolled ? "bg-gray-100" : "bg-white/20"
+            }`}
+          >
+            <div className="w-6 h-6 relative">
+              <motion.span
+                className="absolute left-0 top-1 w-6 h-0.5 bg-current rounded"
+                animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+              />
+              <motion.span
+                className="absolute left-0 top-3 w-6 h-0.5 bg-current rounded"
+                animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
+              />
+              <motion.span
+                className="absolute left-0 top-5 w-6 h-0.5 bg-current rounded"
+                animate={menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+              />
+            </div>
+          </motion.button>
+        </div>
+      </motion.nav>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: 300 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 300 }}
+            className="fixed top-0 right-0 h-full w-64 bg-white/95 backdrop-blur-md z-40 md:hidden"
+          >
+            <div className="p-8 mt-20 space-y-6">
+              {["Home", "Skills", "Experience", "Projects", "Certificates", "Contact"].map((item) => (
+                <motion.a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  onClick={() => setMenuOpen(false)}
+                  whileHover={{ x: 10 }}
+                  className="block text-gray-800 text-lg font-medium hover:text-pink-600 transition-colors"
+                >
+                  {item}
+                </motion.a>
+              ))}
+              <motion.a
                 href={resumeLink}
                 download
-                className="block hover:text-gray-300 transition"
+                whileHover={{ scale: 1.05 }}
+                className="inline-block mt-4 px-6 py-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full font-semibold"
               >
-                Download Resume
-              </a>
-            </li>
-          </ul>
-        </div>
-      )}
+                Download CV
+              </motion.a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Hero Section */}
-      <section className="text-center px-6 py-2 max-w-4xl mx-auto pt-32">
-        <h1
-          className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white"
-          style={{ fontFamily: "'Roboto', sans-serif" }}
-        >
-          Santu Kumar
-        </h1>
-        <p className="mt-4 text-2xl sm:text-3xl text-white font-medium">
-          {displayText}
-          <span className="blinking-cursor">|</span>
-        </p>
+      <div className="relative z-10 h-full flex items-center justify-center">
+        <div className="text-center px-6 max-w-4xl mx-auto">
+          <motion.h1
+            custom={0}
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
+            className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6"
+          >
+            Santu Kumar
+          </motion.h1>
+          
+          <motion.div
+            custom={1}
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
+            className="mb-8"
+          >
+            <p className="text-2xl sm:text-3xl text-white/90 font-light">
+              {displayText}
+              <motion.span
+                animate={{ opacity: [0, 1, 0] }}
+                transition={{ duration: 1, repeat: Infinity }}
+                className="ml-1"
+              >
+                |
+              </motion.span>
+            </p>
+          </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-6 py-6">
-          <a
-            href="#contact"
-            className="rounded-full bg-white px-4 py-2 text-pink-500 font-medium shadow-md hover:scale-105 transition duration-300"
+          <motion.div
+            custom={2}
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-wrap justify-center gap-6"
           >
-            Hire Me
-          </a>
-          <a
-            href="https://drive.google.com/file/d/1BcWLhLWIZ-eT6hMf1nn912OFXM4jS6XS/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full bg-pink-600 px-4 py-2 text-white font-medium shadow-md hover:scale-105 transition duration-300"
+            <motion.a
+              href="#contact"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3 bg-white text-pink-600 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all"
+            >
+              Hire Me
+            </motion.a>
+            <motion.a
+              href="#projects"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3 border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-pink-600 transition-all"
+            >
+              View Projects
+            </motion.a>
+          </motion.div>
+
+          {/* Scroll Indicator */}
+          <motion.div
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
           >
-            Resume
-          </a>
+            <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+              <motion.div
+                className="w-1 h-3 bg-white rounded-full mt-2"
+                animate={{ y: [0, 12, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+            </div>
+          </motion.div>
         </div>
-      </section>
-
-      {/* Cursor Animation */}
-      <style>{`
-        .blinking-cursor {
-          font-weight: 100;
-          font-size: 24px;
-          color: white;
-          animation: blink 1s step-start infinite;
-        }
-
-        @keyframes blink {
-          50% {
-            opacity: 0;
-          }
-        }
-      `}</style>
+      </div>
     </header>
   );
 };

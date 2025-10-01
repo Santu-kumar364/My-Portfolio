@@ -3,15 +3,16 @@ import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 const projects = [
   {
-    title: "XzalChat - Real-time Chat App",
+    title: "SecureMyDocs",
     description: [
-      "Developed a real-time chat app using Firebase Firestore for instant updates and device syncing.",
-      "Implemented secure Firebase Authentication, reducing unauthorized access by 100%.",
-      "Integrated Cloudinary for media sharing, boosting user engagement by 25%.",
+      "Developed SecureMyDocs, a secure document vault featuring client-side AES-256 encryption and per-file OTP authentication using React, Spring Boot, and MySQL.",
+       "Built a responsive Weather App with real-time data fetching and optimized rendering, improving performance by 30% using React and WeatherAPI." , 
+       "Implemented JWT-based authentication and RESTful APIs, and participated in Agile sprints with weekly mentor-led code reviews.",
     ],
-    tech: ["React", "Firebase", "Tailwind CSS", "Cloudinary", "Context API"],
-    codeLink: "https://github.com/Santu-kumar364/XzalChat",
+    tech: ["React", "Spring Boot", "Tailwind CSS", "Cloudinary", "JWT", "MySQL"],
+    codeLink: "https://github.com/Santu-kumar364/secureMyDocs",
   },
+  
   {
     title: "Xzal - Social Media App",
     description: [
@@ -50,6 +51,16 @@ const projects = [
     tech: ["React.js", "CSS", "Material UI"],
     codeLink: "https://github.com/Santu-kumar364/google-homepage-clone",
     liveLink: "https://google-homepage-clone.onrender.com/"
+  },
+  {
+    title: "XzalChat - Real-time Chat App",
+    description: [
+      "Developed a real-time chat app using Firebase Firestore for instant updates and device syncing.",
+      "Implemented secure Firebase Authentication, reducing unauthorized access by 100%.",
+      "Integrated Cloudinary for media sharing, boosting user engagement by 25%.",
+    ],
+    tech: ["React", "Firebase", "Tailwind CSS", "Cloudinary", "Context API"],
+    codeLink: "https://github.com/Santu-kumar364/XzalChat",
   },
   {
     title: "Flipkart Cloner - E-commerce Website",

@@ -5,14 +5,14 @@ const experiences = [
   {
     role: "Full-Stack Developer Intern",
     company: "GUVI (HCL Initiative)",
-    duration: "June 2025 – Present",
+    duration: "June 2025 – Sep 2025",
     logo: "https://www.guvi.in/assets/CPYoUJqK-guvilogo-hcl.webp", // Replace with your logo if needed
     points: [
-      "Completed 90-day hybrid internship via IIT Patna with 3-phase project delivery.",
-      "Built apps using React, Spring Boot, Docker, GCP with JWT, Redis, REST APIs.",
-      "Delivered 2 solo + 1 agile group project with weekly mentor reviews.",
+      "Developed SecureMyDocs, a secure document vault featuring client-side AES-256 encryption and per-file OTP authentication using React, Spring Boot, and MySQL.",
+       "Built a responsive Weather App with real-time data fetching and optimized rendering, improving performance by 30% using React and WeatherAPI." , 
+       "Implemented JWT-based authentication and RESTful APIs, and participated in Agile sprints with weekly mentor-led code reviews.",
     ],
-    tech: ["React", "Spring Boot", "Docker", "GCP", "Redis", "JWT", "Tailwind CSS"],
+    tech: ["React", "Spring Boot", "Tailwind CSS", "Cloudinary", "JWT", "MySQL"],
   },
   {
     role: "Campus Ambassador",
