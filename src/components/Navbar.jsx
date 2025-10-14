@@ -17,7 +17,7 @@ const Navbar = () => {
     "Web Developer",
   ];
 
-  const resumeLink = "https://drive.google.com/uc?export=download&id=1iSMyZQ1n0wbY2MMhz-qxAiYwD3UK1QwA";
+  const resumeLink = "https://drive.google.com/uc?export=download&id=1Zr9eYMua0VfhPMB6FK9L3Dq7dPoi9gnB";
 
   useEffect(() => {
     const handleScroll = () => {

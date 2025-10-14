@@ -3,16 +3,40 @@ import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 const projects = [
   {
+    title: "Ticketing System – IT Support Platform",
+    description: [
+      "Developed a full-stack Ticketing system for Leap Finance’s assignment with role-based access (Admin, Support Agent, User) and scalable workflows.",
+      "Implemented secure JWT authentication, 30+ REST APIs, and real-time ticket management, dashboard, and comment threads for efficient IT support.",
+    ],
+    tech: [
+      "React",
+      "Spring Boot",
+      "Tailwind CSS",
+      "Cloudinary",
+      "JWT",
+      "MySQL",
+    ],
+    codeLink:
+      "https://github.com/Santu-kumar364/Ticketing-System-IT-Support-Platform",
+  },
+  {
     title: "SecureMyDocs",
     description: [
       "Developed SecureMyDocs, a secure document vault featuring client-side AES-256 encryption and per-file OTP authentication using React, Spring Boot, and MySQL.",
-       "Built a responsive Weather App with real-time data fetching and optimized rendering, improving performance by 30% using React and WeatherAPI." , 
-       "Implemented JWT-based authentication and RESTful APIs, and participated in Agile sprints with weekly mentor-led code reviews.",
+      "Built a responsive Weather App with real-time data fetching and optimized rendering, improving performance by 30% using React and WeatherAPI.",
+      "Implemented JWT-based authentication and RESTful APIs, and participated in Agile sprints with weekly mentor-led code reviews.",
     ],
-    tech: ["React", "Spring Boot", "Tailwind CSS", "Cloudinary", "JWT", "MySQL"],
+    tech: [
+      "React",
+      "Spring Boot",
+      "Tailwind CSS",
+      "Cloudinary",
+      "JWT",
+      "MySQL",
+    ],
     codeLink: "https://github.com/Santu-kumar364/secureMyDocs",
   },
-  
+
   {
     title: "Xzal - Social Media App",
     description: [
@@ -50,7 +74,7 @@ const projects = [
     ],
     tech: ["React.js", "CSS", "Material UI"],
     codeLink: "https://github.com/Santu-kumar364/google-homepage-clone",
-    liveLink: "https://google-homepage-clone.onrender.com/"
+    liveLink: "https://google-homepage-clone.onrender.com/",
   },
   {
     title: "XzalChat - Real-time Chat App",
