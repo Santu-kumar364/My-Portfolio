@@ -9,29 +9,38 @@ import {
   FaNodeJs,
   FaDatabase,
   FaGitAlt,
-  FaCloud,
   FaHtml5,
   FaCss3Alt,
   FaServer,
-  FaKey,
   FaDocker,
   FaCode,
   FaProjectDiagram,
+  FaPython,
+  FaPhp,
+  FaAws,
+  FaLock,
+  FaCalculator,
+  FaDesktop,
+  FaNetworkWired,
+  FaSitemap, // Using FaSitemap for System Design
+  FaCogs, // Alternative for System Design
 } from "react-icons/fa";
 import {
   SiSpringboot,
-  SiFirebase,
   SiPostman,
   SiTailwindcss,
-  SiTypescript,
   SiJavascript,
   SiGooglecloud,
   SiCloudinary,
   SiJsonwebtokens,
   SiMysql,
+  SiMui,
+  SiPostgresql,
+  SiDrupal,
+  SiRedux,
 } from "react-icons/si";
 
-// Skills data
+// Skills data - Updated with all skills from resume
 const skills = [
   // Languages
   { name: "Java", level: "95%", icon: <FaJava className="text-orange-500" /> },
@@ -40,15 +49,21 @@ const skills = [
     level: "90%",
     icon: <SiJavascript className="text-yellow-400" />,
   },
-  { name: "MySQL", level: "80%", icon: <SiMysql className="text-blue-700" /> },
-
-  // Frontend
   {
-    name: "HTML5",
+    name: "CSS3",
     level: "98%",
-    icon: <FaHtml5 className="text-orange-500" />,
+    icon: <FaCss3Alt className="text-blue-500" />,
   },
-  { name: "CSS3", level: "98%", icon: <FaCss3Alt className="text-blue-500" /> },
+  {
+    name: "Drupal",
+    level: "60%",
+    icon: <SiDrupal className="text-blue-600" />,
+  },
+  {
+    name: "Spring Boot",
+    level: "80%",
+    icon: <SiSpringboot className="text-green-500" />,
+  },
   {
     name: "React.js",
     level: "85%",
@@ -59,61 +74,119 @@ const skills = [
     level: "75%",
     icon: <SiTailwindcss className="text-sky-400" />,
   },
-   
-
-  // Backend
   {
-    name: "Spring Boot",
-    level: "60%",
-    icon: <SiSpringboot className="text-green-500" />,
+    name: "Python",
+    level: "70%",
+    icon: <FaPython className="text-blue-400" />,
   },
+
+  { name: "PHP", level: "65%", icon: <FaPhp className="text-indigo-400" /> },
+
+  // Frontend
+  {
+    name: "HTML5",
+    level: "98%",
+    icon: <FaHtml5 className="text-orange-500" />,
+  },
+
+  {
+    name: "Material-UI",
+    level: "70%",
+    icon: <SiMui className="text-blue-600" />,
+  },
+
   {
     name: "REST APIs",
     level: "95%",
     icon: <FaServer className="text-teal-500" />,
   },
 
-   
+  // Databases
   {
-    name: "Cloudinary",
-    level: "65%",
-    icon: <SiCloudinary className="text-indigo-400" />,
+    name: "MySQL",
+    level: "80%",
+    icon: <SiMysql className="text-blue-700" />,
+  },
+  {
+    name: "PostgreSQL",
+    level: "70%",
+    icon: <SiPostgresql className="text-blue-800" />,
+  },
+  {
+    name: "DBMS",
+    level: "85%",
+    icon: <FaDatabase className="text-gray-500" />,
   },
 
+  // Cloud & Services
+  {
+    name: "AWS",
+    level: "75%",
+    icon: <FaAws className="text-orange-500" />,
+  },
+  {
+    name: "Cloudinary",
+    level: "75%",
+    icon: <SiCloudinary className="text-indigo-400" />,
+  },
+  {
+    name: "GCP",
+    level: "40%",
+    icon: <SiGooglecloud className="text-blue-400" />,
+  },
+  {
+    name: "Docker",
+    level: "50%",
+    icon: <FaDocker className="text-blue-400" />,
+  },
+
+  // CMS
+
   // Tools
-  { name: "Git", level: "95%", icon: <FaGitAlt className="text-red-500" /> },
+  {
+    name: "Git",
+    level: "95%",
+    icon: <FaGitAlt className="text-red-500" />,
+  },
   {
     name: "Postman",
     level: "95%",
     icon: <SiPostman className="text-orange-400" />,
   },
+
+  // Authentication & Security
   {
-    name: "Docker",
-    level: "40%",
-    icon: <FaDocker className="text-blue-400" />,
-  },
-  {
-    name: "GCP",
-    level: "30%",
-    icon: <SiGooglecloud className="text-blue-400" />,
+    name: "JWT",
+    level: "85%",
+    icon: <SiJsonwebtokens className="text-pink-500" />,
   },
 
   // CS Concepts
   {
     name: "Data Structures",
-    level: "85%",
+    level: "90%",
     icon: <FaProjectDiagram className="text-pink-500" />,
   },
-  { name: "OOPs", level: "95%", icon: <FaCode className="text-green-400" /> },
+
   {
-    name: "DBMS",
-    level: "80%",
-    icon: <FaDatabase className="text-gray-500" />,
+    name: "OOPs",
+    level: "95%",
+    icon: <FaCode className="text-green-400" />,
+  },
+  {
+    name: "System Design",
+    level: "75%",
+    icon: <FaSitemap className="text-teal-600" />, // Changed from FaDiagramProject to FaSitemap
   },
   {
     name: "Computer Networks",
     level: "80%",
-    icon: <FaServer className="text-gray-400" />,
+    icon: <FaNetworkWired className="text-gray-400" />,
+  },
+  {
+    name: "Operating Systems",
+    level: "75%",
+    icon: <FaDesktop className="text-gray-500" />,
   },
 ];
 
@@ -124,11 +197,7 @@ const Skills = () => {
   });
 
   return (
-    <section
-      id="skills"
-      className="px-4 py-10 bg-white text-center "
-      ref={ref}
-    >
+    <section id="skills" className="px-4 py-10 bg-white text-center " ref={ref}>
       <h2 className="text-3xl sm:text-4xl font-bold text-pink-600 mb-4">
         What I Do
       </h2>

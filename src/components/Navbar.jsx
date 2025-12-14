@@ -10,14 +10,15 @@ const Navbar = () => {
   const [roleIndex, setRoleIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
 
-  const roles = [
+  const roles = [ 
     "Java Developer",
     "Full Stack Developer",
     "Software Engineer",
     "Web Developer",
   ];
 
-  const resumeLink = "https://drive.google.com/uc?export=download&id=1Zr9eYMua0VfhPMB6FK9L3Dq7dPoi9gnB";
+  const resumeLink =
+    "https://drive.google.com/file/d/1RHf6RM4bXD_pzxTVoElqS454PAztvhqB/view?usp=sharing";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,11 +45,11 @@ const Navbar = () => {
 
   const navVariants = {
     hidden: { y: -100, opacity: 0 },
-    visible: { 
-      y: 0, 
+    visible: {
+      y: 0,
       opacity: 1,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   const textVariants = {
@@ -59,9 +60,9 @@ const Navbar = () => {
       transition: {
         delay: i * 0.1,
         duration: 0.8,
-        ease: "easeOut"
-      }
-    })
+        ease: "easeOut",
+      },
+    }),
   };
 
   return (
@@ -72,7 +73,7 @@ const Navbar = () => {
     >
       {/* Animated Background Overlay */}
       <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]"></div>
-      
+
       {/* Floating Particles */}
       <div className="absolute inset-0">
         {[...Array(20)].map((_, i) => (
@@ -106,7 +107,7 @@ const Navbar = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
-          <motion.a 
+          <motion.a
             href="#home"
             whileHover={{ scale: 1.05 }}
             className="flex items-center"
@@ -116,7 +117,14 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex items-center gap-8 text-lg">
-            {["Home", "Skills", "Experience", "Projects", "Certificates", "Contact"].map((item, index) => (
+            {[
+              "Home",
+              "Skills",
+              "Experience",
+              "Projects",
+              "Certificates",
+              "Contact",
+            ].map((item, index) => (
               <motion.li key={item} custom={index} variants={textVariants}>
                 <a
                   href={`#${item.toLowerCase()}`}
@@ -136,8 +144,8 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className={`hidden md:inline-block px-6 py-2 rounded-full font-semibold shadow-lg transition-all duration-300 ${
-              scrolled 
-                ? "bg-gradient-to-r from-pink-500 to-purple-600 text-white" 
+              scrolled
+                ? "bg-gradient-to-r from-pink-500 to-purple-600 text-white"
                 : "bg-white text-pink-600"
             }`}
           >
@@ -164,7 +172,9 @@ const Navbar = () => {
               />
               <motion.span
                 className="absolute left-0 top-5 w-6 h-0.5 bg-current rounded"
-                animate={menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+                animate={
+                  menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }
+                }
               />
             </div>
           </motion.button>
@@ -181,7 +191,14 @@ const Navbar = () => {
             className="fixed top-0 right-0 h-full w-64 bg-white/95 backdrop-blur-md z-40 md:hidden"
           >
             <div className="p-8 mt-20 space-y-6">
-              {["Home", "Skills", "Experience", "Projects", "Certificates", "Contact"].map((item) => (
+              {[
+                "Home",
+                "Skills",
+                "Experience",
+                "Projects",
+                "Certificates",
+                "Contact",
+              ].map((item) => (
                 <motion.a
                   key={item}
                   href={`#${item.toLowerCase()}`}
@@ -217,7 +234,7 @@ const Navbar = () => {
           >
             Santu Kumar
           </motion.h1>
-          
+
           <motion.div
             custom={1}
             variants={textVariants}
